@@ -51,3 +51,23 @@ button[type="submit"] {
     color: red;
     font-size: 1rem;
 }
+
+.time-display {
+    font: italic;
+    font-weight: 900;
+}
+
+.humidity {
+    font: italic;
+    font-weight: 900;
+}
+
+.wind {
+    font: italic;
+    font-weight: 900;
+}
+
+.emoji {
+    font: italic;
+    font-weight: 900;
+}
