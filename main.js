@@ -4,12 +4,14 @@ const displayEl = document.querySelector(".weather-data");
 
 
 formEl.addEventListener("submit", (event) => {
-    event.preventDefault();
+    event.preventDefault();   
     const  city = inputEl.value;
-
+    inputEl.value = ""
     if (city === "") {   
         displayEl.style.display = "block";
         handleError("Please Enter City");     
+    } else {
+        return console.log(city)
     }
 })
 
