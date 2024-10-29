@@ -2,27 +2,42 @@ const formEl = document.querySelector(".form");
 const inputEl = document.querySelector(".inputEl");
 const displayEl = document.querySelector(".weather-data");
 
+const apiKey = "43d15d8eb73938d2c76763c568fafce1";
 
-formEl.addEventListener("submit", (event) => {
+
+formEl.addEventListener("submit", async event => {
     event.preventDefault();   
     const  city = inputEl.value;
     inputEl.value = ""
-    if (city === "") {   
-        displayEl.style.display = "block";
-        handleError("Please Enter City");     
-    } else {
-        return console.log(city)
+    if (city) {   
+            try {
+                const weatherData = await getWeatherData(city);
+                displayWeatherInfo(weatherData);
+            } 
+            catch (error) {
+                console.error(error);
+                handleError(error)
+            }
+    } 
+    else {
+        
+        handleError("Please Enter City");
     }
 })
 
+async function getWeatherData(city) {
+  const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`  
+}
+
+function displayWeatherInfo(data) {
+
+}
 
 
-
-function handleError(message) {
-   
+function handleError(message) {   
     const errorDisplay = document.createElement("p");
     errorDisplay.classList.add("error");
     errorDisplay.textContent = message
-     
+    displayEl.style.display = "block";
     displayEl.appendChild(errorDisplay);
 }
