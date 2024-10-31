@@ -50,24 +50,31 @@ function displayWeatherInfo(data) {
 
     const cityDisplay = document.createElement("h1");
     const humidityDiplay = document.createElement("p");
+    const temperatureDisplay = document.createElement("p");
+    const descriptionDisplay = document.createElement("h3");
     
     cityDisplay.classList.add("city");
     humidityDiplay.classList.add("humidity");
+    temperatureDisplay.classList.add("temperature");
+    descriptionDisplay.classList.add("description");
+
 
     cityDisplay.textContent = city;
     humidityDiplay.textContent = `Humidity: ${humidity}`;
-
+    temperatureDisplay.textContent = `Temperature: ${temp}`;
+    descriptionDisplay.textContent = description
     
     displayEl.appendChild(cityDisplay);
-    displayEl.appendChild(humidityDiplay)
-
+    displayEl.appendChild(humidityDiplay);
+    displayEl.appendChild(temperatureDisplay);
+    displayEl.appendChild(descriptionDisplay);
 }
 
 function handleError(message) {
    
     const errorDisplay = document.createElement("p");
     errorDisplay.classList.add("error");
-    errorDisplay.textContent = message
-     displayEl.style.display ="block"
+    errorDisplay.textContent = message;
+    displayEl.style.display ="block";
     displayEl.appendChild(errorDisplay);
 }
