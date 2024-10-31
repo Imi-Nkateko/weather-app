@@ -48,14 +48,14 @@ function displayWeatherInfo(data) {
     displayEl.textContent = "";
     displayEl.style.display = "block";
 
-    const humidityDiplay = document.createElement("p");
     const cityDisplay = document.createElement("h1");
+    const humidityDiplay = document.createElement("p");
     
     cityDisplay.classList.add("city");
     humidityDiplay.classList.add("humidity");
 
     cityDisplay.textContent = city;
-    humidityDiplay.textContent = humidity;
+    humidityDiplay.textContent = `Humidity: ${humidity}`;
 
     
     displayEl.appendChild(cityDisplay);
